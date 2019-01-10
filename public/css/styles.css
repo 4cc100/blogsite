@@ -1,18 +1,42 @@
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+:root {
+    --main-font-color: #343434;
+    --navbar-font-hover: #ae1e31;
+    --footer-background-color:  #f8eaeb;
+    --navbar-background-color: #ffb9c7;
+    --gradient-1: #f7ddde;
+    --gradient-2: #ffc4d0;
 }
+
+
+body {
+    height: 100vh;
+    background: var(--gradient-2);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, var(--gradient-1), var(--gradient-2));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, var(--gradient-1), var(--gradient-2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.default-text {
+    line-height: 2rem;
+    text-align: justify;
+}
+
+.container-fluid {
+    padding: 70px 0;
+}
+
 .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    background-color:var(--navbar-background-color);
+    padding: 15px 0;
     border: 0;
     border-radius: 0;
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
 }
+
+.navbar-default .navbar-brand:hover,
 .navbar-nav  li a:hover {
-    color: #1abc9c !important;
+    color: var(--navbar-font-hover) !important;
 }
 
 .footer-padding {
@@ -25,13 +49,24 @@
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background-color: #1abc9c;
+	background-color: var(--footer-background-color);
 }
 
 .footer p {
 	margin-top: 25px;
 	font-size: 12px;
-  color: #fff;
+    color: var(--main-font-color);
 }
+
+.publish-btn {
+    margin-top: 10px;
+}
+
+.navbar-default .navbar-brand, 
+.navbar-default .navbar-nav>li>a {
+    color: var(--main-font-color);
+}
+
+
 
 
