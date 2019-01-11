@@ -1,10 +1,11 @@
 :root {
     --main-font-color: #343434;
-    --navbar-font-hover: #ae1e31;
+    --navbar-font-hover: #b80257; 
     --footer-background-color:  #f8eaeb;
     --navbar-background-color: #ffb9c7;
     --gradient-1: #f7ddde;
     --gradient-2: #ffc4d0;
+    --material-shadow: 0 3px 6px rgba(221, 53, 110, 0.16), 0 3px 6px rgba(221, 53, 110, 0.23);
 }
 
 
@@ -13,6 +14,17 @@ body {
     background: var(--gradient-2);  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, var(--gradient-1), var(--gradient-2));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, var(--gradient-1), var(--gradient-2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1, h2 {
+    margin: 30px 0 15px;
+    font-size: 3.5rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(221, 53, 110, 0.75), rgba(0, 0, 0, 0));
 }
 
 .default-text {
@@ -58,15 +70,14 @@ body {
     color: var(--main-font-color);
 }
 
-.publish-btn {
-    margin-top: 10px;
-}
-
 .navbar-default .navbar-brand, 
 .navbar-default .navbar-nav>li>a {
     color: var(--main-font-color);
 }
 
+.material-shadow {
+    box-shadow: var(--material-shadow);
+}
 
 
 

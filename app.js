@@ -10,31 +10,46 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
+let posts = [];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-app.get('/', (req, res)=> {
-  res.render('home', {homeKezdoTartalom: homeStartingContent});
-});
-
-app.get('/about', (req, res)=> {
+app.get('/', (req, res) => {
+  res.render('home', 
+  {
+    homeKezdoTartalom: homeStartingContent,
+    posts: posts, 
+  });   
+});  
+ 
+app.get('/about', (req, res) => {
   res.render('about', {aboutTartalom: aboutContent});
 });
 
-app.get('/contact', (req, res)=> {
+app.get('/contact', (req, res) => {
   res.render('contact', {contactTartalom: contactContent});
 });
 
-app.get('/compose', (req, res)=> {
+app.get('/compose', (req, res) => {
   res.render('compose');
 }); 
 
-app.post('/compose', (req, res)=> {
+app.post('/compose', (req, res) => {
+  const post = {};
+
+  post.title = req.body.postTitle;
+  post.body = req.body.postBody;
+
+  posts.push(post);
   
-  console.log(req.body.inputTitle);
-}); 
+
+  res.redirect('/');
+  
+  
+});  
 
 
 
