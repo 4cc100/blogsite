@@ -39,8 +39,6 @@ app.get('/posts/:post', (req, res) => {
           customBody: post.body
         }
       );
-    } else {
-      console.log("Not found!");
     }
   });
 });
