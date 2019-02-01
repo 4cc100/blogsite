@@ -37,20 +37,16 @@ app.get('/', (req, res) => {
   });
 });   
 
-app.get('/posts/:post', (req, res) => {
-  const URLParam = _.lowerCase(req.params.post);
-
-  posts.forEach((post) => {
-    
-    if(_.lowerCase(post.title) === URLParam) {
-      res.render('post',
+app.get('/posts/:postId', (req, res) => {
+  const postID = req.params.postId;
+  Post.findOne({_id: postID}, (err, post) => {
+    res.render('post',
         {
           customTitle: post.title,
-          customBody: post.body
+          customBody: post.content
         }
       );
-    }
-  });
+  })
 });
  
 app.get('/about', (req, res) => {
@@ -66,19 +62,18 @@ app.get('/compose', (req, res) => {
 }); 
 
 app.post('/compose', (req, res) => {
-  // post.title = req.body.postTitle;
-  // post.body = req.body.postBody;
-  
+
   const customPost = new Post({
     title: req.body.postTitle,
     content: req.body.postBody
   });
 
-  customPost.save();
-  
-  res.redirect('/');
-  
-});  
+  customPost.save((err) => {
+    if(!err){
+      res.redirect('/');
+    }
+  });
+  });  
 
 
 
